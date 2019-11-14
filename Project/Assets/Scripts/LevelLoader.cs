@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     private bool playerInZone;
@@ -19,7 +19,8 @@ public class LevelLoader : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.W) && playerInZone)
         {
-            Application.LoadLevel(levelToLoad);
+            //Application.LoadLevel(levelToLoad);
+            SceneManager.LoadScene(levelToLoad);
         }
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -29,6 +30,7 @@ public class LevelLoader : MonoBehaviour
             playerInZone = true;
         }
     }
+
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.name == "Mario")
