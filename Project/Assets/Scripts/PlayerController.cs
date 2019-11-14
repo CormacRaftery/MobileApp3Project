@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private float moveVelocity;
     public float moveSpeed;
     public float jumpHeight;
     private Rigidbody2D rigid;
@@ -26,21 +27,27 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        moveVelocity = 0f;
         if(Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             rigid.velocity = new Vector2(rigid.velocity.x, jumpHeight);
         }
 
-        if(Input.GetKeyDown(KeyCode.D))
-        {
 
-            rigid.velocity = new Vector2(moveSpeed, rigid.velocity.y);
+        if(Input.GetKey(KeyCode.D))
+        {
+            moveVelocity = moveSpeed;
         }
 
-        if(Input.GetKeyDown(KeyCode.A))
+        if(Input.GetKey(KeyCode.A))
         {
-
-            rigid.velocity = new Vector2(-moveSpeed, rigid.velocity.y);
+            moveVelocity = -moveSpeed;
         }
+        rigid.velocity = new Vector2(moveVelocity, rigid.velocity.y);
+
+        if (rigid.velocity.x > 0)
+            transform.localScale = new Vector3(1f,1f,1f);
+        else if(rigid.velocity.x < 0)
+            transform.localScale = new Vector3(-1f, 1f, 1f);
     }
 }
