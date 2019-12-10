@@ -971,7 +971,7 @@ MonoBehaviour:
 
     Spacebar: Jump
 
-    W: end level(when touching flag)
+    W: end level(when touching flag)(Up Arrow on IOS)
 
     Escape: pause menu'
 --- !u!222 &2047087912

@@ -11,13 +11,14 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<PlayerController>();
+        //player = FindObjectOfType<PlayerController>();
         isFollowing = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        player = FindObjectOfType<PlayerController>();
         if (isFollowing)
             transform.position = new Vector3(player.transform.position.x + xOffset, player.transform.position.y + yOffset,transform.position.z);
     }

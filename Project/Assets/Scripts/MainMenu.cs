@@ -14,17 +14,12 @@ public class MainMenu : MonoBehaviour
     public string howToPlay;
     public string settings;
     public string back;
-
+    //private PlayerSelector ps;
     private static bool sprite = true;
 
     public bool getSprite()
     {
         return sprite;
-    }
-
-    public void CharacterSelect()
-    {
-
     }
 
     public void NewGame()
@@ -59,12 +54,15 @@ public class MainMenu : MonoBehaviour
 
     public void Mario()
     {
+        //ps.sprite = true;
+    //    ps.setSpriteTrue();
         sprite = true;
     }
 
     public void Luigi()
     {
-        sprite = false;
+         sprite = false;
+       // ps.setSpriteFalse();
     }
 
     public void Back()

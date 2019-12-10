@@ -13,10 +13,13 @@ public class PlayerController : MonoBehaviour
     public LayerMask WhatIsGround;
     private bool grounded;
     private Animator anim;
-
+    public GameObject touchScreen;
     // Start is called before the first frame update
     void Start()
     {
+#if UNITY_STANDALONE || UNITY
+        touchScreen.SetActive(false);
+#endif
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
@@ -30,27 +33,47 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
-        moveVelocity = 0f;
-        if(Input.GetKeyDown(KeyCode.Space) && grounded)
+        //moveVelocity = 0f;
+#if UNITY_STANDALONE || UNITY
+
+        moveVelocity = 0;
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            rigid.velocity = new Vector2(rigid.velocity.x, jumpHeight);
+            Jump();
+           // rigid.velocity = new Vector2(rigid.velocity.x, jumpHeight);
         }
 
 
         if(Input.GetKey(KeyCode.D))
         {
-            moveVelocity = moveSpeed;
+            //moveVelocity = moveSpeed;
+            Move(1);
         }
 
         if(Input.GetKey(KeyCode.A))
         {
-            moveVelocity = -moveSpeed;
+            Move(-1);
+            // moveVelocity = -moveSpeed;
         }
+#endif
         rigid.velocity = new Vector2(moveVelocity, rigid.velocity.y);
 
         if (rigid.velocity.x > 0)
             transform.localScale = new Vector3(1f,1f,1f);
         else if(rigid.velocity.x < 0)
             transform.localScale = new Vector3(-1f, 1f, 1f);
+    }
+
+    public void Move(int moveInput)
+    {
+        moveVelocity = moveSpeed * moveInput;
+    }
+    public void Jump()
+    {
+        if (grounded)
+        {
+            Debug.Log("Jumping");
+            rigid.velocity = new Vector2(rigid.velocity.x, jumpHeight);
+        }
     }
 }

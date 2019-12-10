@@ -27,7 +27,8 @@ public class PauseMenu : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            isPaused = !isPaused;
+            //isPaused = !isPaused;
+            Pause();
         }
     }
     public void Resume()
@@ -40,7 +41,10 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         SceneManager.LoadScene(levelSelect);
     }
-
+     public void Pause()
+    {
+        isPaused = !isPaused;
+    }
     public void Quit()
     {
         SceneManager.LoadScene(mainMenu);
