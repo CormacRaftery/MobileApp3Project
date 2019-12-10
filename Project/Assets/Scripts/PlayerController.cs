@@ -8,16 +8,18 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpHeight;
     private Rigidbody2D rigid;
-
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask WhatIsGround;
     private bool grounded;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+
     }
     void FixedUpdate()
     {
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
         moveVelocity = 0f;
         if(Input.GetKeyDown(KeyCode.Space) && grounded)
         {

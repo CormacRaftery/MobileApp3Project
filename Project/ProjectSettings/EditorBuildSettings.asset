@@ -8,10 +8,37 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleMenu.unity
     guid: 59e794bc114285c41946fb3e133885a5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MADProject.unity
     guid: 62f7e0bcc143a434aa9fb16c917d2ec5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1.unity
     guid: 46dc6bdfae81fb14c9d4aa9c2a2cc268
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 2c0ba5abe78746f43b130bd0b78c9b44
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: a4e2c46b473c5314aa98ac216cca3b36
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: 9fabf2e6085795345bbeec7073a85416
+  - enabled: 1
+    path: Assets/Scenes/LevelSelectMenu.unity
+    guid: ea52314f718e9244dba254e3dac18b1e
+  - enabled: 1
+    path: Assets/Scenes/SettingsMenu.unity
+    guid: 370ef9ce47b4f9d4b8a1b5b247e0f1ed
+  - enabled: 1
+    path: Assets/Scenes/HowToPlay.unity
+    guid: cb2f7f20de6cf684d86db92b5592ffb8
+  - enabled: 1
+    path: Assets/Scenes/Defeat.unity
+    guid: b81e9215e530ce44a922b240fc1f7bf2
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/de3351607dcb08f4aaa86d06d297d2ac
+    guid: de3351607dcb08f4aaa86d06d297d2ac
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: b91103b04df6f8f4b8561ceeb4dfc508
   m_configObjects: {}

@@ -19,7 +19,7 @@ public class CheckPoint : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "Mario")
+        if (other.name == "Mario" || other.name == "Luigi")
         {
             levelManager.currentCheckPoint = gameObject;
             Debug.Log("Activated CheckPoint "+ transform.position);

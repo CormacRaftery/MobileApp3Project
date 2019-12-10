@@ -11,6 +11,7 @@ public class EnemyPatrol : MonoBehaviour
     public LayerMask WhatIsWall;
     private bool hittingWall;
     private bool atEdge;
+    private bool moveRight;
     public Transform edgeCheck;
     // Start is called before the first frame update
     void Start()
@@ -22,18 +23,21 @@ public class EnemyPatrol : MonoBehaviour
     void Update()
     {
         hittingWall = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, WhatIsWall);
-
         atEdge = Physics2D.OverlapCircle(edgeCheck.position, wallCheckRadius, WhatIsWall);
-
-        if (hittingWall || !atEdge)
+        if (!atEdge || hittingWall)
         {
-            moveSpeed = -moveSpeed;
+            moveRight = !moveRight;
         }
-        if (GetComponent<Rigidbody2D>().velocity.x > 0)
-            transform.localScale = new Vector3(1f, 0.5f, 1f);
-        else if (GetComponent<Rigidbody2D>().velocity.x < 0)
-            transform.localScale = new Vector3(-1f, 0.5f, 1f);
-        GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        
+
+        if (moveRight)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        }
     }
 }

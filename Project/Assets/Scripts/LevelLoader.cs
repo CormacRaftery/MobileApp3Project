@@ -25,7 +25,7 @@ public class LevelLoader : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.name == "Mario")
+        if(other.name == "Mario" || other.name == "Luigi")
         {
             playerInZone = true;
         }
@@ -33,7 +33,7 @@ public class LevelLoader : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.name == "Mario")
+        if (other.name == "Mario" || other.name == "Luigi")
         {
             playerInZone = false;
         }

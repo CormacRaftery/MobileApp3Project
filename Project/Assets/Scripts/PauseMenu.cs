@@ -37,6 +37,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LevelSelect()
     {
+        isPaused = false;
         SceneManager.LoadScene(levelSelect);
     }
 

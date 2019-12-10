@@ -25,6 +25,7 @@ public class KillEnemyStomp : MonoBehaviour
         if (other.tag == "Enemies")
         {
             stomp.Play();
+            ScoreManager.AddPoints(100);
             Destroy(other.gameObject);
             Debug.Log("Stomp");
             myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, bounceOnEnemy);

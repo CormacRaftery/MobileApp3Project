@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
-    public static int score;
+    public static int score=0;
 
     Text text;
 
@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour
     {
         text = GetComponent<Text>();
 
-        score = 0;
+       // score = 0;
     }
 
     void Update()
@@ -27,6 +27,7 @@ public class ScoreManager : MonoBehaviour
     {
         score += pointsToAdd;
     }
+
     public static void Reset()
     {
         score = 0;
